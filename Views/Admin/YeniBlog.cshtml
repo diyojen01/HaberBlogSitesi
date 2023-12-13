@@ -1,0 +1,29 @@
+﻿@model HaberBlogSitesi.Models.Blog
+
+@{
+    ViewData["Title"] = "YeniBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<form class="form-group" method="post">
+
+
+    <b>Blog Başlığı</b>
+    @Html.TextBoxFor(x => x.BlogTitle, new { @class = "form-control" })
+    <br />
+    <b>Blog İçeriği</b>
+    @Html.TextAreaFor(x => x.BlogContent, 10, 3, new { @class = "form-control" })
+    <br />
+    <b>Blog Görseli</b>
+    @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })
+    <br />
+    <b>Kategori Adı</b>
+    @Html.DropDownListFor(x => x.Category.CategoryID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Blog Ekle</button>
+
+
+
+</form>

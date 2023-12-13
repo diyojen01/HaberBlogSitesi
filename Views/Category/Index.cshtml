@@ -1,0 +1,41 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+
+@model IPagedList<HaberBlogSitesi.Models.Category>
+@*@using HaberBlogSitesi.Models
+    @model List<Category>*@
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.CategoryID</td>
+            <td>@x.CategoryName</td>
+            @*<td><a href="/Category/KategoriSil/@x.CategoryID" class="btn btn-danger">Sil</a></td>*@
+            <td><a href="/Category/KategoriSil/@x.CategoryID" onclick="return confirm('Silmek istediğine emin misin?');" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Category/KategoriGuncelle/@x.CategoryID" class="btn btn-success">Güncelle</a></td>
+
+
+        </tr>
+
+    }
+
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
+<a href="/Category/Yenikategori/" class="btn btn-primary">Yeni Kategori Ekle</a>

@@ -1,0 +1,31 @@
+﻿@model HaberBlogSitesi.Models.Blog
+@{
+    ViewData["Title"] = "YorumYap";
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+}
+
+<link href="~/web2/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="~/web2/css/style.css" rel='stylesheet' type='text/css' />
+
+<div class="content-form">
+
+    
+
+    <h3>Bir Yorum Yapın</h3>
+
+    <form method="post">
+
+        <input type="hidden" placeholder="ID" name="Blogid" value="@ViewBag.deger" required />
+
+        <input type="text" placeholder="Kullanıcı adı" name="CommentUserName" required />
+
+        <input type="text" placeholder="Yorum Başlığı" name="CommentTitle" required />
+
+        <textarea placeholder="Yorum içeriği " name="CommentContent"></textarea>
+
+        <input type="submit" value="Gönder" / style="margin-bottom:10px">
+        <br />
+    </form>
+</div>
+
+

@@ -1,0 +1,25 @@
+﻿@model HaberBlogSitesi.Models.Category
+
+
+@{
+    ViewData["Title"] = "KategoriGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("KategoriGuncelle", "Category", FormMethod.Post))
+{
+
+
+
+    <b>Kategori ID</b>
+    @Html.TextBoxFor(x =>x.CategoryID , new { @class = "form-control" })
+    <br />
+
+
+    <b>Kategori Adı</b>
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" style="background-color:#ff6a00">Kategori Güncelle</button>
+
+
+}

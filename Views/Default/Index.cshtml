@@ -1,0 +1,79 @@
+﻿@model HaberBlogSitesi.Models.BlogYorum
+
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+
+    <div class="header-banner">
+        <div class="wrap">
+            <div class="banner">
+                <div class="indent">
+                    <h2 class="indent-left margin-bot" style="margin-left:80px">Haber Bloğum</h2>
+                   
+                    <div class="header_bottom_right_images">
+
+                        <div class="slider" style="width:650px; height:320px;">
+                            <ul class="rslides" id="slider1">
+
+                                @foreach (var x in Model.Deger1)
+                                {
+
+
+                                    
+
+                                   <li><a href="/Default/BlogDetay/@x.BlogID"><img src="@x.BlogImage" alt="" style="width:700px;height:330px"><h5>@x.BlogTitle</h5><span>Kategorisi:@x.Category.CategoryName</span></a></li>
+                                   
+                                    
+                                    
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class"content">
+        <div class="wrap">
+            <div class="wrapper">
+                @*<div class="con-top">
+            <h3>Haber Bloğuma Hoşgeldiniz!</h3>
+
+        </div>*@
+                <br />
+                <br />
+
+               
+                @await Html.PartialAsync("~/Views/Default/Partial1.cshtml")
+                <div class="grids">
+                    <div class="box1">
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+

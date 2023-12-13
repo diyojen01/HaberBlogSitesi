@@ -1,0 +1,22 @@
+﻿@model IEnumerable<HaberBlogSitesi.Models.Comment>
+
+
+
+
+@foreach (var x in Model)
+{
+
+
+    <ul class="comment-list">
+
+        <li>
+            <img src="~/web2/images/avatar.png" class="img-responsive" alt="">
+            <div class="desc">
+                <p>@x.CommentUserName:@x.CommentTitle</p>
+            </div>
+            <div class="clearfix"></div>
+        </li>
+
+    </ul>
+
+}

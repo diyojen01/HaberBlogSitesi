@@ -1,0 +1,46 @@
+﻿
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+
+@model IPagedList<HaberBlogSitesi.Models.Comment>
+@*@using HaberBlogSitesi.Models
+    @model List<Comment>*@
+
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>KULLANICI ADI</th>
+        <th>YORUM BAŞLIĞI</th>
+        <th>BLOG ID</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.CommentID</td>
+            <td>@x.CommentUserName</td>
+            <td>@x.CommentTitle</td>
+            <td>@x.BlogID</td>
+            @*<td><a href="/Comment/YorumSil/@x.CommentID" class="btn btn-danger">Sil</a></td>*@
+            <td><a href="/Comment/YorumSil/@x.CommentID" onclick="return confirm('Silmek istediğine emin misin?');" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Comment/YorumGuncelle/@x.CommentID" class="btn btn-success">Güncelle</a></td>
+
+
+        </tr>
+
+    }
+
+</table>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
